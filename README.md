@@ -1,6 +1,9 @@
 # bookshelf-touch
 
-This plugin automatically updates your timestamps when saving your Bookshelf models.
+This [Bookshelf.js](http://bookshelfjs.org) plugin automatically updates your timestamps when saving your Bookshelf models.
+
+[![npm version](https://badge.fury.io/js/bookshelf-touch.svg)](https://badge.fury.io/js/bookshelf-touch)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.txt)
 
 ## Usage
 
