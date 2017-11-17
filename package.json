@@ -1,0 +1,23 @@
+{
+  "name": "bookshelf-touch",
+  "version": "1.0.0",
+  "description": "Automatically update timestamps on your Bookshelf models when saving",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MediaComem/bookshelf-touch.git"
+  },
+  "keywords": [
+    "bookshelf",
+    "touch"
+  ],
+  "author": "Media Engineering Institute <mei@heig-vd.ch>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MediaComem/bookshelf-touch/issues"
+  },
+  "homepage": "https://github.com/MediaComem/bookshelf-touch#readme",
+  "peerDependencies": {
+    "bookshelf": "~0.11.1"
+  }
+}
