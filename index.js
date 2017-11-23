@@ -6,34 +6,67 @@ module.exports = function(bookshelf) {
 
     constructor: function() {
       proto.constructor.apply(this, arguments);
-      this.on('saving', this.touch, this);
+      this.on('saving', () => this.touch());
     },
 
     touch: function() {
 
-      const hasCreatedAt = this.has('created_at');
-      if (isTimestampEnabled(this, 'created_at') && !hasCreatedAt) {
-        this.set('created_at', new Date());
-      }
-
-      const hasUpdatedAt = this.has('updated_at');
-      if (isTimestampEnabled(this, 'updated_at')) {
-        this.set('updated_at', hasCreatedAt && hasUpdatedAt ? new Date() : this.get('created_at') || new Date());
+      const config = getTimestampsConfig(this);
+      for (let timestamp in config) {
+        const timestampConfig = config[timestamp];
+        if (timestampConfig) {
+          touchTimestamp(this, timestamp, timestampConfig === true ? defaultConfig[timestamp] : timestampConfig);
+        }
       }
     }
   });
 };
 
-function isTimestampEnabled(record, timestamp) {
+const defaultConfig = {
+  created_at: {},
+  updated_at: {
+    default: record => record.get('created_at'),
+    update: true
+  }
+};
+
+function touchTimestamp(record, timestamp, config) {
+
+  const isSet = record.get(timestamp);
+  if (isSet && config.update) {
+    // Update the timestamp (only if "update" is true).
+    record.set(timestamp, new Date());
+  } else if (isSet) {
+    // Do not do anything if the timestamp is already set and "update" is not true.
+    return;
+  } else {
+    // Initialize the timestamp if not set (to its default value or to now).
+    record.set(timestamp, config.default ? config.default(record) || new Date() : new Date());
+  }
+}
+
+function getTimestampsConfig(record) {
   const timestamps = record.timestamps;
   if (!timestamps) {
-    return false;
+    return {};
   } else if (Array.isArray(timestamps)) {
-    return timestamps.indexOf(timestamp) >= 0;
+
+    const config = {};
+    for (let property in defaultConfig) {
+      if (timestamps.indexOf(property) >= 0) {
+        config[property] = defaultConfig[property];
+      }
+    }
+
+    return config;
   } else if (typeof(timestamps) == 'string') {
-    return timestamps == timestamp;
+    return {
+      [timestamps]: defaultConfig[timestamps]
+    };
   } else if (timestamps === true) {
-    return true;
+    return defaultConfig;
+  } else if (typeof(timestamps) == 'object') {
+    return timestamps;
   } else {
     throw new Error(`"timestamps" property should be true, a string or an array, got ${JSON.stringify(timestamps)} (${typeof(timestamps)})`);
   }
