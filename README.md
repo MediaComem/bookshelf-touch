@@ -17,6 +17,8 @@ This [Bookshelf.js](http://bookshelfjs.org) plugin automatically updates your ti
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+Developed at the [Media Engineering Institute](http://mei.heig-vd.ch) ([HEIG-VD](https://heig-vd.ch)).
+
 
 
 ## Usage
