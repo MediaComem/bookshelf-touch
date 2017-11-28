@@ -3,9 +3,9 @@
 This [Bookshelf.js](http://bookshelfjs.org) plugin automatically updates your timestamps when saving your Bookshelf models.
 
 [![npm version](https://badge.fury.io/js/bookshelf-touch.svg)](https://badge.fury.io/js/bookshelf-touch)
+[![Dependency Status](https://gemnasium.com/badges/github.com/MediaComem/bookshelf-touch.svg)](https://gemnasium.com/github.com/MediaComem/bookshelf-touch)
 [![Build Status](https://travis-ci.org/MediaComem/bookshelf-touch.svg?branch=master)](https://travis-ci.org/MediaComem/bookshelf-touch)
 [![Coverage Status](https://coveralls.io/repos/github/MediaComem/bookshelf-touch/badge.svg?branch=master)](https://coveralls.io/github/MediaComem/bookshelf-touch?branch=master)
-[![Dependency Status](https://gemnasium.com/badges/github.com/MediaComem/bookshelf-touch.svg)](https://gemnasium.com/github.com/MediaComem/bookshelf-touch)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.txt)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
