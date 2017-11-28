@@ -27,6 +27,11 @@
     "url": "https://github.com/MediaComem/bookshelf-touch/issues"
   },
   "homepage": "https://github.com/MediaComem/bookshelf-touch#readme",
+  "files": [
+    "index.js",
+    "LICENSE.txt",
+    "README.md"
+  ],
   "peerDependencies": {
     "bookshelf": "~0.11.1"
   },
