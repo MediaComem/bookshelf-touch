@@ -33,7 +33,7 @@
     "README.md"
   ],
   "peerDependencies": {
-    "bookshelf": "~0.11.1"
+    "bookshelf": "^0.11.1"
   },
   "devDependencies": {
     "babel-plugin-istanbul": "^4.1.5",
