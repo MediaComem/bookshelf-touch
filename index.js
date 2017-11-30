@@ -33,7 +33,7 @@ const defaultConfig = {
 function touchTimestamp(record, timestamp, config) {
 
   const isSet = record.get(timestamp);
-  if (isSet && config.update) {
+  if (isSet && config.update && !record.isNew()) {
     // Update the timestamp (only if "update" is true).
     record.set(timestamp, new Date());
   } else if (isSet) {
